@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Data Pasien</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>🏥 Sistem Data Pasien</h1>
+        <p>Manajemen Data Kesehatan Pasien</p>
+    </header>
+
+    <!-- Form Input -->
+    <div class="card">
+        <h2 id="form-title">➕ Tambah Data Pasien</h2>
+        <form id="patient-form">
+            <input type="hidden" id="patient-id">
+            <div class="form-group">
+                <label>Nama Pasien</label>
+                <input type="text" id="nama" placeholder="Masukkan nama lengkap" required>
+            </div>
+            <div class="form-group">
+                <label>Umur</label>
+                <input type="number" id="umur" placeholder="Masukkan umur" min="0" max="150" required>
+            </div>
+            <div class="form-group">
+                <label>Jenis Kelamin</label>
+                <select id="jenis_kelamin" required>
+                    <option value="">-- Pilih --</option>
+                    <option value="Laki-laki">Laki-laki</option>
+                    <option value="Perempuan">Perempuan</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Diagnosa</label>
+                <input type="text" id="diagnosa" placeholder="Masukkan diagnosa" required>
+            </div>
+            <div class="form-group">
+                <label>Tanggal Masuk</label>
+                <input type="date" id="tanggal" required>
+            </div>
+            <div class="form-buttons">
+                <button type="submit" class="btn btn-primary" id="submit-btn">💾 Simpan</button>
+                <button type="button" class="btn btn-secondary" id="cancel-btn" onclick="resetForm()" style="display:none">❌ Batal</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Search -->
+    <div class="card">
+        <div class="search-bar">
+            <input type="text" id="search" placeholder="🔍 Cari nama pasien atau diagnosa...">
+            <span id="total-pasien">Total: 0 pasien</span>
+        </div>
+    </div>
+
+    <!-- Tabel Data -->
+    <div class="card">
+        <h2>📋 Data Pasien</h2>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Nama</th>
+                        <th>Umur</th>
+                        <th>Jenis Kelamin</th>
+                        <th>Diagnosa</th>
+                        <th>Tgl Masuk</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody id="table-body">
+                    <tr id="empty-row">
+                        <td colspan="7" class="empty">Belum ada data pasien</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
